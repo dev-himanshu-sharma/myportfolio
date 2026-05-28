@@ -3,7 +3,9 @@
 import { motion } from "framer-motion"
 import { Github, Linkedin, Mail, MapPin, ArrowDown } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useState } from "react"
+import profilePic from "./profilepic.png"
 
 const roles = ["MERN Stack Developer", "Full Stack Engineer", "Backend Specialist", "React Developer"]
 
@@ -41,7 +43,7 @@ export function Hero() {
   return (
     <section className="min-h-screen relative flex items-center pt-20">
       {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.06)_1px,transparent_1px)] bg-[size:60px_60px]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -175,62 +177,17 @@ export function Hero() {
 
               {/* Wireframe Visual */}
               <div className="aspect-square bg-gradient-to-br from-primary/10 to-transparent rounded-lg flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.1)_0%,transparent_70%)]" />
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-full h-full max-w-[300px] text-primary opacity-80"
-                >
-                  {/* Wireframe head/face design */}
-                  <defs>
-                    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
-                      <stop offset="100%" stopColor="currentColor" stopOpacity="0.3" />
-                    </linearGradient>
-                  </defs>
-                  {/* Central face outline */}
-                  <ellipse cx="100" cy="90" rx="50" ry="60" fill="none" stroke="url(#neonGradient)" strokeWidth="0.5" />
-                  {/* Grid lines */}
-                  {[...Array(8)].map((_, i) => (
-                    <ellipse
-                      key={`h-${i}`}
-                      cx="100"
-                      cy={50 + i * 15}
-                      rx={50 - Math.abs(i - 3.5) * 5}
-                      ry="5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="0.3"
-                      opacity={0.5}
-                    />
-                  ))}
-                  {[...Array(12)].map((_, i) => (
-                    <line
-                      key={`v-${i}`}
-                      x1={50 + i * 8.3}
-                      y1="30"
-                      x2={50 + i * 8.3}
-                      y2="150"
-                      stroke="currentColor"
-                      strokeWidth="0.3"
-                      opacity={0.3}
-                    />
-                  ))}
-                  {/* Eyes */}
-                  <circle cx="80" cy="80" r="8" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                  <circle cx="120" cy="80" r="8" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                  <circle cx="80" cy="80" r="3" fill="currentColor" opacity="0.6" />
-                  <circle cx="120" cy="80" r="3" fill="currentColor" opacity="0.6" />
-                  {/* Nose */}
-                  <line x1="100" y1="85" x2="100" y2="105" stroke="currentColor" strokeWidth="0.5" />
-                  <line x1="100" y1="105" x2="95" y2="108" stroke="currentColor" strokeWidth="0.5" />
-                  {/* Mouth */}
-                  <path d="M 85 120 Q 100 130 115 120" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                  {/* Circuit patterns */}
-                  <circle cx="60" cy="140" r="2" fill="currentColor" opacity="0.5" />
-                  <circle cx="140" cy="140" r="2" fill="currentColor" opacity="0.5" />
-                  <line x1="60" y1="140" x2="40" y2="160" stroke="currentColor" strokeWidth="0.3" opacity="0.3" />
-                  <line x1="140" y1="140" x2="160" y2="160" stroke="currentColor" strokeWidth="0.3" opacity="0.3" />
-                </svg>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.14)_0%,transparent_70%)]" />
+                <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-primary/45 ring-2 ring-primary/20">
+                  <Image
+                    src={profilePic}
+                    alt="Himanshu Sharma profile picture"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
                 
                 {/* Recording indicator */}
                 <div className="absolute bottom-4 right-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">

@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion"
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
+import profilePic from "./profilepic.png"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -20,8 +22,14 @@ export function Footer() {
             viewport={{ once: true }}
             className="flex items-center gap-4"
           >
-            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">HS</span>
+            <div className="relative w-10 h-10 overflow-hidden rounded-full border border-primary/50 ring-1 ring-primary/20">
+              <Image
+                src={profilePic}
+                alt="Himanshu Sharma profile picture"
+                fill
+                sizes="40px"
+                className="object-cover"
+              />
             </div>
             <div>
               <div className="font-mono text-sm text-foreground">Himanshu Sharma</div>

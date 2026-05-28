@@ -50,7 +50,7 @@ export function Experience() {
   return (
     <section id="experience" className="py-24 bg-card/30 relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

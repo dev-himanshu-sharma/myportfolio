@@ -4,48 +4,49 @@ import { motion } from "framer-motion"
 
 const skillCategories = [
   {
-    title: "Frontend",
-    skills: [
-      { name: "React.js", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "HTML/CSS", level: 95 },
-    ],
+    title: "Languages",
+    items: ["JavaScript (ES6+)", "Python", "HTML5", "CSS3", "SQL"],
   },
   {
-    title: "Backend",
-    skills: [
-      { name: "Node.js", level: 90 },
-      { name: "Express.js", level: 90 },
-      { name: "MongoDB", level: 85 },
-      { name: "REST APIs", level: 90 },
-      { name: "Socket.io", level: 80 },
-    ],
+    title: "Libraries/Frameworks",
+    items: ["ReactJS", "Node.js", "Express.js", "Tailwind CSS"],
   },
   {
-    title: "Tools & Others",
-    skills: [
-      { name: "Git/GitHub", level: 90 },
-      { name: "VS Code", level: 95 },
-      { name: "Postman", level: 85 },
-      { name: "Vercel", level: 90 },
-      { name: "Docker", level: 70 },
-    ],
+    title: "Databases/Tools",
+    items: ["MongoDB", "Postman API", "GitHub", "VS Code"],
+  },
+  {
+    title: "Concepts",
+    items: ["Data Structures & Algorithms (DSA)", "REST APIs", "JWT Authentication", "Socket.io", "Accessibility"],
   },
 ]
 
 const technologies = [
-  "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Express",
-  "MongoDB", "PostgreSQL", "Redis", "Socket.io", "GraphQL", "REST",
-  "Tailwind", "SASS", "Git", "Docker", "AWS", "Vercel", "JWT", "OAuth"
+  "JavaScript",
+  "Python",
+  "HTML5",
+  "CSS3",
+  "SQL",
+  "ReactJS",
+  "Node.js",
+  "Express.js",
+  "Tailwind CSS",
+  "MongoDB",
+  "Postman",
+  "GitHub",
+  "VS Code",
+  "DSA",
+  "REST APIs",
+  "JWT",
+  "Socket.io",
+  "Accessibility",
 ]
 
 export function Skills() {
   return (
     <section id="skills" className="py-24 bg-card/30 relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -63,8 +64,8 @@ export function Skills() {
           <div className="w-24 h-0.5 bg-primary" />
         </motion.div>
 
-        {/* Skills Progress Bars */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        {/* Skills Lists */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -74,26 +75,22 @@ export function Skills() {
               transition={{ delay: categoryIndex * 0.1 }}
               className="p-6 border border-border bg-card rounded-lg"
             >
-              <h3 className="font-mono text-primary text-sm mb-6 uppercase tracking-wider">
+              <h3 className="font-mono text-primary text-sm mb-5 uppercase tracking-wider">
                 {category.title}
               </h3>
-              <div className="space-y-5">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-foreground text-sm">{skill.name}</span>
-                      <span className="text-muted-foreground text-sm font-mono">{skill.level}%</span>
-                    </div>
-                    <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.1, duration: 0.8 }}
-                        className="h-full bg-primary rounded-full"
-                      />
-                    </div>
-                  </div>
+              <div className="space-y-3">
+                {category.items.map((item, skillIndex) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                    className="flex items-start gap-3 text-sm"
+                  >
+                    <span className="text-primary mt-1">•</span>
+                    <span className="text-foreground">{item}</span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

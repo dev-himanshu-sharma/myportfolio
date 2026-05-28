@@ -4,6 +4,9 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import profilePic from "./profilepic.png"
+import { ThemeToggle } from "./theme-toggle"
 
 const navItems = [
   { number: "01", label: "ABOUT", href: "#about" },
@@ -51,8 +54,15 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">HS</span>
+            <div className="relative w-10 h-10 overflow-hidden rounded-full border border-primary/50 ring-1 ring-primary/20">
+              <Image
+                src={profilePic}
+                alt="Himanshu Sharma profile picture"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
             </div>
             <span className="font-mono text-sm tracking-wider text-muted-foreground group-hover:text-primary transition-colors">
               HIMANSHU_SHARMA
@@ -84,14 +94,17 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Hire Me Button */}
-          <Link
-            href="#contact"
-            className="hidden lg:flex items-center gap-2 px-6 py-2 border border-primary text-primary font-mono text-sm tracking-wider hover:bg-primary hover:text-primary-foreground transition-all neon-border"
-          >
-            HIRE ME
-            <span className="w-2 h-2 bg-primary animate-pulse" />
-          </Link>
+          <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
+            {/* Hire Me Button */}
+            <Link
+              href="#contact"
+              className="flex items-center gap-2 px-6 py-2 border border-primary text-primary font-mono text-sm tracking-wider hover:bg-primary hover:text-primary-foreground transition-all neon-border"
+            >
+              HIRE ME
+              <span className="w-2 h-2 bg-primary animate-pulse" />
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -139,6 +152,9 @@ export function Navigation() {
                   HIRE ME
                   <span className="w-2 h-2 bg-primary animate-pulse" />
                 </Link>
+                <div className="pt-2 flex justify-center">
+                  <ThemeToggle />
+                </div>
               </div>
             </motion.div>
           )}
