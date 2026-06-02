@@ -123,7 +123,7 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden mt-4 pb-4 border-t border-border"
+              className="lg:hidden mt-4 pb-4 border-t border-border bg-background/95 backdrop-blur-md relative z-40"
             >
               <div className="flex flex-col gap-4 pt-4">
                 {navItems.map((item, index) => (
